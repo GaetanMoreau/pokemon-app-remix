@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import { NavLink } from "@remix-run/react";
 import pokemons from "../assets/data/pokemons.json";
+import Header from "../components/header";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,12 +10,16 @@ export const meta: MetaFunction = () => {
 };
 
 export default function pokedex() {
+    const handlePokemonClick = () => {
+        console.log("ihoufiuhfishuus")
+    }
   return (
     <>
+     <Header />
       <section className="pokedex__container">
         {pokemons.map((pokemon, index) => {
           return (
-            <div className="pokemon__item" key={index}>
+            <div className="pokemon__item" key={index} onClick={handlePokemonClick}>
                 <div className="pokemon__header">
                     <img src="/image/pokeball.webp"></img>
                     <span>No.{pokemon.id}</span>

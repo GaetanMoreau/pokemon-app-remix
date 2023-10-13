@@ -1,6 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
 import Header from "../components/header";
-import pokemons from "../assets/data/pokemons.json";
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,11 +8,10 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function Index() {
+export default function Sac() {
   return (
     <>
     <Header />
-    <h1>Attrape les pokemons et complète ton Pokedex !</h1>
     </>
   );
 }

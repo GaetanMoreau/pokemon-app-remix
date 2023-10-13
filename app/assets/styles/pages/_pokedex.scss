@@ -2,9 +2,10 @@
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 10px;
+  padding: 4rem 2rem;
 
   .pokemon__item {
-    background-color: #f1daee;
+    background-color: #E7E3CA;
     border-radius: 0.3rem;
     display: flex;
     flex-direction: column;
@@ -14,17 +15,33 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  background-color: #baa8dc;
+  background-color: #27394D;
   color: #fff;
   padding: 0.4rem;
   border-radius: 0.3rem 0.3rem 0 0;
   font-family: "Lato", sans-serif;
 
   img {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
   }
 }
 .pokemon__image {
   filter: contrast(0%);
+}
+
+@media screen and (max-width: 1200px) {
+    .pokedex__container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+@media screen and (max-width: 768px) {
+    .pokedex__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media screen and (max-width: 480px) {
+    .pokedex__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
