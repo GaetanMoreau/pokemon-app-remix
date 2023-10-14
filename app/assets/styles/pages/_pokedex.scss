@@ -17,13 +17,17 @@
   gap: 0.6rem;
   background-color: #27394D;
   color: #fff;
-  padding: 0.4rem;
+  padding: 0.6rem;
   border-radius: 0.3rem 0.3rem 0 0;
   font-family: "Lato", sans-serif;
 
   img {
     width: 16px;
     height: 16px;
+  }
+
+  span{
+    font-size: 1.2rem;
   }
 }
 .pokemon__image {

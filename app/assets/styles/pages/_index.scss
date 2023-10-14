@@ -1,0 +1,15 @@
+.home__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  h1{
+    font-size: 2rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+  }
+}
+.wild__pokemon {
+  position: absolute;
+}
