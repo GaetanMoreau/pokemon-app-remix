@@ -1,8 +1,10 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/node";
 import Header from "../components/header";
+import { useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
-import { getRandomPosition } from "../utils/getRandomPosition";
-import { getRandomPokemon } from "../utils/getRandomPokemon";
+import { selectRandomPokemon, getRandomPosition } from "../utils/pokemonUtils";
+import pokemons from "../assets/data/pokemons.json";
+import { Pokemon, PositionedPokemon } from "../types/pokemon";
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,40 +13,33 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-type Pokemon = {
-  sprites: {
-    front_default: string;
-  };
-};
+export async function loader({}: LoaderFunctionArgs) {
+  return pokemons;
+}
 
-export default function Index() {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-
-  const fetchNewPokemons = () => {
-    const newPokemons = [
-      getRandomPokemon(),
-      getRandomPokemon(),
-      getRandomPokemon(),
-    ];
-    setPokemons(newPokemons);
-  };
+export default function Component() {
+  const allPokemons = useLoaderData<Pokemon[]>();
+  const [currentPokemons, setCurrentPokemons] = useState<PositionedPokemon[]>(
+    []
+  );
 
   useEffect(() => {
-    const divClass = "wild__pokemon";
-
     const intervalId = setInterval(() => {
-      fetchNewPokemons();
-      getRandomPosition(divClass);
-    }, 2000);
+      const updatedPokemons = selectRandomPokemon(allPokemons, 3).map(
+        (pokemon: Pokemon) => ({
+          ...pokemon,
+          position: getRandomPosition(),
+        })
+      );
+      setCurrentPokemons(updatedPokemons);
+    }, 3000);
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+    return () => clearInterval(intervalId);
+  }, [allPokemons]);
 
-  const handleCapture = (pokemon:Pokemon) =>{
-    console.log(pokemon)
-  }
+  const handleCapture = (pokemon: Pokemon) => {
+    console.log(pokemon);
+  };
 
   return (
     <>
@@ -53,12 +48,25 @@ export default function Index() {
         <h1>Attrape les pokemons et complète ton Pokedex !</h1>
       </section>
       <div>
-        {pokemons.map((pokemon, index) => (
-          <div key={index} className="wild__pokemon" onClick={() => handleCapture(pokemon)}>
-            <img src={pokemon.sprites.front_default}></img>
+        {currentPokemons.map((pokemon, index) => (
+          <div
+            key={index}
+            className="wild__pokemon"
+            onClick={() => handleCapture(pokemon)}
+            style={{
+              position: "absolute",
+              left: `${pokemon.position.x}px`,
+              top: `${pokemon.position.y}px`,
+            }}
+          >
+            <img src={pokemon.sprites.front_default} alt={`Pokemon ${index}`} />
           </div>
         ))}
       </div>
     </>
   );
+}
+
+export async function action({}: LoaderFunctionArgs) {
+
 }
