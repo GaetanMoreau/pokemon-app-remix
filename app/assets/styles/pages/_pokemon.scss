@@ -1,0 +1,23 @@
+.pokemon-details__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6rem;
+
+  .pokemon__item {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .pokemon-details__name {
+      font-size: 1.6    rem;
+      text-transform: capitalize;
+      font-family: 'Lato', sans-serif;
+    }
+  }
+}
+
+.pokemon-details__image {
+  filter: contrast(0%);
+  height: 30rem;
+}
