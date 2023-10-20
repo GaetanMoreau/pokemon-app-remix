@@ -1,10 +1,18 @@
-import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/node";
+import type {
+  MetaFunction,
+  LoaderFunctionArgs,
+  ActionFunctionArgs,
+} from "@remix-run/node";
 import Header from "../components/header";
 import { useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { selectRandomPokemon, getRandomPosition } from "../utils/pokemonUtils";
 import pokemons from "../assets/data/pokemons.json";
 import { Pokemon, PositionedPokemon } from "../types/pokemon";
+
+import { json } from "@remix-run/node";
+import fs from "fs/promises";
+import path from "path";
 
 export const meta: MetaFunction = () => {
   return [
@@ -25,7 +33,7 @@ export default function Component() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const updatedPokemons = selectRandomPokemon(allPokemons, 3).map(
+      const updatedPokemons = selectRandomPokemon(allPokemons, 10).map(
         (pokemon: Pokemon) => ({
           ...pokemon,
           position: getRandomPosition(),
@@ -37,8 +45,33 @@ export default function Component() {
     return () => clearInterval(intervalId);
   }, [allPokemons]);
 
-  const handleCapture = (pokemon: Pokemon) => {
-    console.log(pokemon);
+  const handleCapture = async (pokemon: Pokemon) => {
+    const pokemonCaptured = {
+      uuid: Date.now(),
+      id: pokemon.id,
+      name: pokemon.name,
+      sprites: {
+        front_default: pokemon.sprites.front_default,
+      },
+    };
+    try {
+      const response = await fetch("/?index", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(pokemonCaptured),
+      });
+
+      if (!response.ok) {
+        throw new Error("Problème lors de la capture du Pokémon");
+      }
+
+      const data = await response.json();
+      console.log(data.message);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -67,6 +100,25 @@ export default function Component() {
   );
 }
 
-export async function action({}: LoaderFunctionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
+  if (request.method !== "POST") {
+    return json({ message: "Méthode non autorisée" }, { status: 405 });
+  }
 
+  const pokemon = await request.json();
+
+  const bagFilePath = "./app/assets/data/bag.json";
+  const bag = JSON.parse(await fs.readFile(bagFilePath, "utf8"));
+
+  const seenFilePath = "./app/assets/data/seen.json";
+  const seen = new Set(JSON.parse(await fs.readFile(seenFilePath, "utf8")));
+
+  bag.push(pokemon);
+
+  seen.add(pokemon.id)
+
+  await fs.writeFile(bagFilePath, JSON.stringify(bag, null, 2), "utf8");
+  await fs.writeFile(seenFilePath, JSON.stringify([...seen], null, 2), "utf8");
+
+  return json({ message: "Pokémon capturé avec succès!" });
 }

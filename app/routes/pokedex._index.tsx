@@ -1,9 +1,10 @@
 import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, NavLink } from "@remix-run/react";
 import pokemons from "../assets/data/pokemons.json";
 import Header from "../components/header";
-import { NavLink } from "@remix-run/react";
 import { Pokemon } from "../types/pokemon";
+
+import pokemonsSeen from "../assets/data/seen.json";
 
 export const meta: MetaFunction = () => {
   return [
@@ -42,6 +43,7 @@ export default function Component() {
                   className="pokemon__image"
                   src={pokemon.sprites.front_default}
                 ></img>
+                 <h2 className="pokemon__name">???</h2>
               </div>
             </NavLink>
           );

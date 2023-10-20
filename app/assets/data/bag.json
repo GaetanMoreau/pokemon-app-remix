@@ -1,0 +1,298 @@
+[
+  {
+    "uuid": 1697815996924,
+    "id": 126,
+    "name": "magmar",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/126.png"
+    }
+  },
+  {
+    "uuid": 1697816077874,
+    "id": 149,
+    "name": "dragonite",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png"
+    }
+  },
+  {
+    "uuid": 1697816158202,
+    "id": 77,
+    "name": "ponyta",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/77.png"
+    }
+  },
+  {
+    "uuid": 1697816165610,
+    "id": 57,
+    "name": "primeape",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png"
+    }
+  },
+  {
+    "uuid": 1697816184769,
+    "id": 110,
+    "name": "weezing",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/110.png"
+    }
+  },
+  {
+    "uuid": 1697816185497,
+    "id": 98,
+    "name": "krabby",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/98.png"
+    }
+  },
+  {
+    "uuid": 1697816196465,
+    "id": 70,
+    "name": "weepinbell",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/70.png"
+    }
+  },
+  {
+    "uuid": 1697816897704,
+    "id": 78,
+    "name": "rapidash",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png"
+    }
+  },
+  {
+    "uuid": 1697816897839,
+    "id": 78,
+    "name": "rapidash",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png"
+    }
+  },
+  {
+    "uuid": 1697816903392,
+    "id": 3,
+    "name": "venusaur",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+    }
+  },
+  {
+    "uuid": 1697816903551,
+    "id": 3,
+    "name": "venusaur",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+    }
+  },
+  {
+    "uuid": 1697816903697,
+    "id": 3,
+    "name": "venusaur",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+    }
+  },
+  {
+    "uuid": 1697816903824,
+    "id": 3,
+    "name": "venusaur",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+    }
+  },
+  {
+    "uuid": 1697816956097,
+    "id": 76,
+    "name": "golem",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png"
+    }
+  },
+  {
+    "uuid": 1697816956561,
+    "id": 76,
+    "name": "golem",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png"
+    }
+  },
+  {
+    "uuid": 1697816956728,
+    "id": 76,
+    "name": "golem",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png"
+    }
+  },
+  {
+    "uuid": 1697816956880,
+    "id": 76,
+    "name": "golem",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png"
+    }
+  },
+  {
+    "uuid": 1697816957017,
+    "id": 76,
+    "name": "golem",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png"
+    }
+  },
+  {
+    "uuid": 1697816957161,
+    "id": 76,
+    "name": "golem",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png"
+    }
+  },
+  {
+    "uuid": 1697817101264,
+    "id": 80,
+    "name": "slowbro",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png"
+    }
+  },
+  {
+    "uuid": 1697817101416,
+    "id": 80,
+    "name": "slowbro",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png"
+    }
+  },
+  {
+    "uuid": 1697817101544,
+    "id": 80,
+    "name": "slowbro",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png"
+    }
+  },
+  {
+    "uuid": 1697817101703,
+    "id": 80,
+    "name": "slowbro",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png"
+    }
+  },
+  {
+    "uuid": 1697817101960,
+    "id": 80,
+    "name": "slowbro",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png"
+    }
+  },
+  {
+    "uuid": 1697817102112,
+    "id": 80,
+    "name": "slowbro",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png"
+    }
+  },
+  {
+    "uuid": 1697817222159,
+    "id": 40,
+    "name": "wigglytuff",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/40.png"
+    }
+  },
+  {
+    "uuid": 1697817337639,
+    "id": 53,
+    "name": "persian",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53.png"
+    }
+  },
+  {
+    "uuid": 1697817337777,
+    "id": 53,
+    "name": "persian",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53.png"
+    }
+  },
+  {
+    "uuid": 1697817347874,
+    "id": 28,
+    "name": "sandslash",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png"
+    }
+  },
+  {
+    "uuid": 1697817348034,
+    "id": 28,
+    "name": "sandslash",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png"
+    }
+  },
+  {
+    "uuid": 1697817348178,
+    "id": 28,
+    "name": "sandslash",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png"
+    }
+  },
+  {
+    "uuid": 1697817348322,
+    "id": 28,
+    "name": "sandslash",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png"
+    }
+  },
+  {
+    "uuid": 1697817398453,
+    "id": 100,
+    "name": "voltorb",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png"
+    }
+  },
+  {
+    "uuid": 1697817399085,
+    "id": 103,
+    "name": "exeggutor",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/103.png"
+    }
+  },
+  {
+    "uuid": 1697817412101,
+    "id": 43,
+    "name": "oddish",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/43.png"
+    }
+  },
+  {
+    "uuid": 1697817412460,
+    "id": 43,
+    "name": "oddish",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/43.png"
+    }
+  },
+  {
+    "uuid": 1697817412717,
+    "id": 43,
+    "name": "oddish",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/43.png"
+    }
+  }
+]
