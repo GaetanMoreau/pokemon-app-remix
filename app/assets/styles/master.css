@@ -384,7 +384,7 @@ header nav a {
   font-family: "Lato", sans-serif;
 }
 header nav a:hover {
-  color: #000;
+  color: #2F2F99;
 }
 
 .home__container {
@@ -424,7 +424,8 @@ header nav a:hover {
   font-family: "Lato", sans-serif;
 }
 
-.pokemon--seen .pokemon__image, .pokemon--seen .pokemon-details__image {
+.pokemon--seen .pokemon__image,
+.pokemon--seen .pokemon-details__image {
   filter: contrast(100%);
 }
 
@@ -444,6 +445,15 @@ header nav a:hover {
 }
 .pokemon__header span {
   font-size: 1.2rem;
+}
+
+.pokedex__return {
+  font-size: 2rem;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+.pokedex__return:hover {
+  color: #2F2F99;
 }
 
 @media screen and (max-width: 1200px) {
@@ -501,6 +511,22 @@ header nav a:hover {
   padding: 1rem;
   text-transform: capitalize;
   font-family: "Lato", sans-serif;
+}
+
+.pokemon__action__container {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  justify-content: space-between;
+  background: rgba(127, 152, 176, 0.45);
+}
+.pokemon__action__container .pokemon__action {
+  font-size: 1.2rem;
+  font-family: "Lato", sans-serif;
+}
+.pokemon__action__container .pokemon__action:hover {
+  color: #2f2f99;
+  cursor: pointer;
 }
 
 body {

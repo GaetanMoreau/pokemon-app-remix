@@ -22,7 +22,8 @@
   }
 }
 .pokemon--seen {
-  .pokemon__image, .pokemon-details__image{
+  .pokemon__image,
+  .pokemon-details__image {
     filter: contrast(100%);
   }
 }
@@ -43,6 +44,15 @@
 
   span {
     font-size: 1.2rem;
+  }
+}
+.pokedex__return {
+  font-size: 2rem;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+
+  &:hover{
+    color: #2F2F99;
   }
 }
 

@@ -1,4 +1,4 @@
-import { useParams, useLoaderData } from "@remix-run/react";
+import { useParams, useLoaderData, NavLink } from "@remix-run/react";
 import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/node";
 import pokemons from "../assets/data/pokemons.json";
 import Header from "../components/header";
@@ -52,6 +52,10 @@ export default function PokemonDetails() {
   return (
     <>
       <Header />
+
+      <section className="home__container">
+        <NavLink to={"/pokedex"} className="pokedex__return">Retour au pokedex</NavLink>
+      </section>
       <section className="pokemon-details__container">
         <div className={`pokemon__item ${seenClass}`}>
           <img

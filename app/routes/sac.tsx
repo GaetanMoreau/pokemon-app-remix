@@ -23,19 +23,25 @@ export default function Component() {
       <section className="bag__container">
         {pokemons.map((pokemon, index) => {
           return (
-            <NavLink to={`/pokedex/${pokemon.id}`}>
-              <div className="pokemon__item" key={index}>
-                <div className="pokemon__header">
-                  <img src="/image/pokeball.webp"></img>
-                  <span>No.{pokemon.id}</span>
+            <div>
+              <NavLink to={`/pokedex/${pokemon.id}`}>
+                <div className="pokemon__item" key={index}>
+                  <div className="pokemon__header">
+                    <img src="/image/pokeball.webp"></img>
+                    <span>No.{pokemon.id}</span>
+                  </div>
+                  <img
+                    className="pokemon__image"
+                    src={pokemon.sprites.front_default}
+                  ></img>
+                  <h2 className="pokemon__name">{pokemon.name}</h2>
                 </div>
-                <img
-                  className="pokemon__image"
-                  src={pokemon.sprites.front_default}
-                ></img>
-                <h2 className="pokemon__name">{pokemon.name}</h2>
+              </NavLink>
+              <div className="pokemon__action__container">
+                <p className="pokemon__action">Liberer</p>
+                <p className="pokemon__action">Renommer</p>
               </div>
-            </NavLink>
+            </div>
           );
         })}
       </section>

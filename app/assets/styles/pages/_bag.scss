@@ -18,3 +18,19 @@
     font-family: "Lato", sans-serif;
   }
 }
+.pokemon__action__container {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  justify-content: space-between;
+  background: rgba(127, 152, 176, 0.45);
+  .pokemon__action {
+    font-size: 1.2rem;
+    font-family: "Lato", sans-serif;
+
+    &:hover {
+      color: #2f2f99;
+      cursor: pointer;
+    }
+  }
+}
