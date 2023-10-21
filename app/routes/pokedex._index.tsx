@@ -3,7 +3,6 @@ import { useLoaderData, NavLink } from "@remix-run/react";
 import pokemons from "../assets/data/pokemons.json";
 import Header from "../components/header";
 import { Pokemon } from "../types/pokemon";
-
 import pokemonsSeen from "../assets/data/seen.json";
 
 export const meta: MetaFunction = () => {
@@ -14,27 +13,33 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({}: LoaderFunctionArgs) {
-  return pokemons;
+  return {
+    pokemons,
+    pokemonsSeen,
+  };
 }
+type LoaderData = {
+  pokemons: Pokemon[];
+  pokemonsSeen: [];
+};
 
 export default function Component() {
-  const pokemons = useLoaderData<Pokemon[]>();
+  const data = useLoaderData<LoaderData>();
+  const { pokemons, pokemonsSeen } = data;
 
-  const handlePokemonClick = () => {
-    console.log("ihoufiuhfishuus");
+  const isPokemonSeen = (pokemonId: number) => {
+    return pokemonsSeen.some((seen) => seen === pokemonId);
   };
+
   return (
     <>
       <Header />
       <section className="pokedex__container">
         {pokemons.map((pokemon, index) => {
+          const seenClass = isPokemonSeen(pokemon.id) ? "pokemon--seen" : "";
           return (
             <NavLink to={`/pokedex/${pokemon.id}`}>
-              <div
-                className="pokemon__item"
-                key={index}
-                onClick={handlePokemonClick}
-              >
+              <div className={`pokemon__item ${seenClass}`} key={index}>
                 <div className="pokemon__header">
                   <img src="/image/pokeball.webp"></img>
                   <span>No.{pokemon.id}</span>
@@ -43,7 +48,9 @@ export default function Component() {
                   className="pokemon__image"
                   src={pokemon.sprites.front_default}
                 ></img>
-                 <h2 className="pokemon__name">???</h2>
+                <h2 className="pokemon__name">
+                  {isPokemonSeen(pokemon.id) ? pokemon.name : "???"}
+                </h2>
               </div>
             </NavLink>
           );

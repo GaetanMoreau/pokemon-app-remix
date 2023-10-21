@@ -21,6 +21,11 @@
     font-family: "Lato", sans-serif;
   }
 }
+.pokemon--seen {
+  .pokemon__image, .pokemon-details__image{
+    filter: contrast(100%);
+  }
+}
 .pokemon__header {
   display: flex;
   align-items: center;

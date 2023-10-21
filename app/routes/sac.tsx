@@ -17,7 +17,6 @@ export async function loader({}: LoaderFunctionArgs) {
 
 export default function Component() {
   const pokemons = useLoaderData<Pokemon[]>();
-  console.log(pokemons);
   return (
     <>
       <Header />

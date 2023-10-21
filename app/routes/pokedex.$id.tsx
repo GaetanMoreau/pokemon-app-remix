@@ -3,6 +3,7 @@ import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/node";
 import pokemons from "../assets/data/pokemons.json";
 import Header from "../components/header";
 import { Pokemon } from "../types/pokemon";
+import pokemonsSeen from "../assets/data/seen.json";
 
 export const meta: MetaFunction = () => {
   return [
@@ -15,11 +16,23 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({}: LoaderFunctionArgs) {
-  return pokemons;
+  return {
+    pokemons,
+    pokemonsSeen,
+  };
 }
+type LoaderData = {
+  pokemons: Pokemon[];
+  pokemonsSeen: [];
+};
 
 export default function PokemonDetails() {
-  const pokemons = useLoaderData<Pokemon[]>();
+  const data = useLoaderData<LoaderData>();
+  const { pokemons, pokemonsSeen } = data;
+
+  const isPokemonSeen = (pokemonId: number) => {
+    return pokemonsSeen.some((seen) => seen === pokemonId);
+  };
 
   const { id: pokemonId } = useParams();
 
@@ -34,19 +47,21 @@ export default function PokemonDetails() {
   if (!pokemon) {
     return <div>Pokémon not found</div>;
   }
+  const seenClass = isPokemonSeen(pokemon.id) ? "pokemon--seen" : "";
 
   return (
     <>
       <Header />
       <section className="pokemon-details__container">
-        <div className="pokemon__item">
+        <div className={`pokemon__item ${seenClass}`}>
           <img
             className="pokemon-details__image"
             src={pokemon.sprites.front_default}
           ></img>
           <div className="pokemon-details__name">
             <h1>
-              <span>No.{pokemon.id}</span> {pokemon.name}
+              <span>No.{pokemon.id} </span>
+              {isPokemonSeen(pokemon.id) ? pokemon.name : "???"}
             </h1>
           </div>
         </div>

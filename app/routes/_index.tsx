@@ -12,7 +12,6 @@ import { Pokemon, PositionedPokemon } from "../types/pokemon";
 
 import { json } from "@remix-run/node";
 import fs from "fs/promises";
-import path from "path";
 
 export const meta: MetaFunction = () => {
   return [
@@ -33,7 +32,7 @@ export default function Component() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const updatedPokemons = selectRandomPokemon(allPokemons, 10).map(
+      const updatedPokemons = selectRandomPokemon(allPokemons, 6).map(
         (pokemon: Pokemon) => ({
           ...pokemon,
           position: getRandomPosition(),
@@ -68,7 +67,6 @@ export default function Component() {
       }
 
       const data = await response.json();
-      console.log(data.message);
     } catch (error) {
       console.error(error);
     }
@@ -115,7 +113,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
   bag.push(pokemon);
 
-  seen.add(pokemon.id)
+  seen.add(pokemon.id);
 
   await fs.writeFile(bagFilePath, JSON.stringify(bag, null, 2), "utf8");
   await fs.writeFile(seenFilePath, JSON.stringify([...seen], null, 2), "utf8");
