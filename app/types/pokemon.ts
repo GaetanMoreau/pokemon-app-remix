@@ -49,3 +49,7 @@ export type PositionedPokemon = Pokemon & {
     y: number;
   };
 };
+
+export type bagPokemon = Pokemon & {
+  uuid: number;
+};

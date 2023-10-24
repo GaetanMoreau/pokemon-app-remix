@@ -7,7 +7,7 @@ import pokemonsSeen from "../assets/data/seen.json";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Pokémon Details" },
+    { title: "Remix Pokemon Catcher - Pokémon Details" },
     {
       name: "description",
       content: "Detailed information about a specific Pokémon.",
@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader({}: LoaderFunctionArgs) {
+export async function loader({ }: LoaderFunctionArgs) {
   return {
     pokemons,
     pokemonsSeen,
@@ -52,7 +52,6 @@ export default function PokemonDetails() {
   return (
     <>
       <Header />
-
       <section className="home__container">
         <NavLink to={"/pokedex"} className="pokedex__return">Retour au pokedex</NavLink>
       </section>

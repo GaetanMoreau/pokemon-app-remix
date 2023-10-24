@@ -15,12 +15,12 @@ import fs from "fs/promises";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Remix Pokemon Catcher" },
+    { name: "description", content: "Welcome to the Remix pokedex. Try to catch Pokemon and have fun !" },
   ];
 };
 
-export async function loader({}: LoaderFunctionArgs) {
+export async function loader({ }: LoaderFunctionArgs) {
   return pokemons;
 }
 

@@ -7,12 +7,12 @@ import pokemonsSeen from "../assets/data/seen.json";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Remix Pokemon Catcher - Pokedex" },
+    { name: "description", content: "Welcome to your pokedex. Keep track of the Pokemon you've seen" },
   ];
 };
 
-export async function loader({}: LoaderFunctionArgs) {
+export async function loader({ }: LoaderFunctionArgs) {
   return {
     pokemons,
     pokemonsSeen,
