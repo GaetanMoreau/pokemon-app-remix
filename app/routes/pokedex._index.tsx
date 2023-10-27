@@ -30,14 +30,20 @@ export default function Component() {
     return pokemonsSeen.some((seen) => seen === pokemonId);
   };
 
+  const pokemonsSeenNumber = Object.keys(pokemonsSeen).length;
+
   return (
     <>
+
+      <section className="home__container">
+        <h1>Vous avez rencontré {pokemonsSeenNumber} pokemons sur 151</h1>
+      </section>
       <section className="pokedex__container">
         {pokemons.map((pokemon, index) => {
           const seenClass = isPokemonSeen(pokemon.id) ? "pokemon--seen" : "";
           return (
-            <NavLink to={`/pokedex/${pokemon.id}`}>
-              <div className={`pokemon__item ${seenClass}`} key={index}>
+            <NavLink to={`/pokedex/${pokemon.id}`} key={index}>
+              <div className={`pokemon__item ${seenClass}`}>
                 <div className="pokemon__header">
                   <img src="/image/pokeball.webp"></img>
                   <span>No.{pokemon.id}</span>
