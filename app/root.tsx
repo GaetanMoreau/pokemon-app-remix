@@ -1,5 +1,5 @@
 import appStylesHref from "./assets/styles/master.css";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -7,14 +7,24 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData
 } from "@remix-run/react";
+import Header from "./components/header";
+import bag from "./assets/data/bag.json";
 
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appStylesHref },
 ];
 
+export async function loader({ }: LoaderFunctionArgs) {
+  return bag;
+}
+
 export default function App() {
+  const pokemonsInBag = useLoaderData();
+  let count = Object.keys(pokemonsInBag).length;
+
   return (
     <html lang="en">
       <head>
@@ -24,6 +34,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Header count={count} />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

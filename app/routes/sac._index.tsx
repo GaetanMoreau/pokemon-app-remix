@@ -1,11 +1,7 @@
-import type { MetaFunction, LoaderFunctionArgs, ActionFunctionArgs } from "@remix-run/node";
+import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData, NavLink } from "@remix-run/react";
-import Header from "../components/header";
 import capturedPokemons from "../assets/data/bag.json";
-import { Pokemon, bagPokemon } from "../types/pokemon";
-
-import { json } from "@remix-run/node";
-import fs from "fs/promises";
+import { Pokemon } from "../types/pokemon";
 
 export const meta: MetaFunction = () => {
   return [
@@ -23,20 +19,11 @@ export default function Component() {
 
   const handleReleased = async (pokemon: Pokemon) => {
     const pokemonReleased = {
-      uuid: pokemon.uuid,
-      id: pokemon.id,
-      name: pokemon.name,
-      sprites: {
-        front_default: pokemon.sprites.front_default,
-      },
+      uuid: pokemon.uuid
     };
     try {
-      const response = await fetch("/?index", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(pokemonReleased),
+      const response = await fetch("/sac/" + pokemon.uuid, {
+        method: "DELETE",
       });
 
       if (!response.ok) {
@@ -51,7 +38,6 @@ export default function Component() {
 
   return (
     <>
-      <Header />
       <section className="bag__container">
         {pokemons.map((pokemon, index) => {
           return (
@@ -81,30 +67,3 @@ export default function Component() {
   );
 }
 
-export async function action({ request }: ActionFunctionArgs) {
-  if (request.method !== 'POST') {
-    return json({ message: 'Méthode non autorisée' }, { status: 405 });
-  }
-
-  const pokemon = await request.json();
-
-  const bagFilePath = './app/assets/data/bag.json';
-
-  try {
-    const bagData = await fs.readFile(bagFilePath, 'utf8');
-    const bag = JSON.parse(bagData);
-
-    const indexToDelete = bag.findIndex((item: bagPokemon) => item.uuid === pokemon.uuid);
-
-    if (indexToDelete !== -1) {
-      bag.splice(indexToDelete, 1);
-      await fs.writeFile(bagFilePath, JSON.stringify(bag, null, 2), 'utf8');
-      return json({ message: 'Pokémon capturé avec succès!' });
-    } else {
-      return json({ message: 'Le Pokémon n\'a pas été trouvé dans le sac' }, { status: 404 });
-    }
-  } catch (error) {
-    console.error('Une erreur s\'est produite :', error);
-    return json({ message: 'Erreur lors de la manipulation du fichier JSON' }, { status: 500 });
-  }
-}

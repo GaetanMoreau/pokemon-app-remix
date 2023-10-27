@@ -1,7 +1,6 @@
 import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData, NavLink } from "@remix-run/react";
 import pokemons from "../assets/data/pokemons.json";
-import Header from "../components/header";
 import { Pokemon } from "../types/pokemon";
 import pokemonsSeen from "../assets/data/seen.json";
 
@@ -33,7 +32,6 @@ export default function Component() {
 
   return (
     <>
-      <Header />
       <section className="pokedex__container">
         {pokemons.map((pokemon, index) => {
           const seenClass = isPokemonSeen(pokemon.id) ? "pokemon--seen" : "";

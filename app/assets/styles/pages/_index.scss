@@ -1,12 +1,33 @@
 .home__container {
   text-align: center;
   margin-top: 2rem;
+
   h1 {
     font-size: 2rem;
     font-family: "Lato", sans-serif;
     font-weight: bold;
   }
 }
+
 .wild__pokemon {
   position: absolute;
+}
+
+.pokemon__info {
+  font-size: 2rem;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  width: 100%;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  color: green;
+  display: none;
+
+  &.in {
+    display: flex;
+  }
 }

@@ -3,7 +3,6 @@ import type {
   LoaderFunctionArgs,
   ActionFunctionArgs,
 } from "@remix-run/node";
-import Header from "../components/header";
 import { useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { selectRandomPokemon, getRandomPosition } from "../utils/pokemonUtils";
@@ -66,7 +65,11 @@ export default function Component() {
         throw new Error("Problème lors de la capture du Pokémon");
       }
 
-      const data = await response.json();
+      let info = document.querySelector('.pokemon__info')
+      info?.classList.add("in");
+      setTimeout(() => {
+        info?.classList.remove("in");
+      }, 1000);
     } catch (error) {
       console.error(error);
     }
@@ -74,7 +77,6 @@ export default function Component() {
 
   return (
     <>
-      <Header />
       <section className="home__container">
         <h1>Attrape les pokemons et complète ton Pokedex !</h1>
       </section>
@@ -94,6 +96,7 @@ export default function Component() {
           </div>
         ))}
       </div>
+      <p className="pokemon__info">Pokemon capturé !</p>
     </>
   );
 }
