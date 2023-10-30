@@ -1058,9 +1058,17 @@
   {
     "uuid": 1698414450367,
     "id": 54,
-    "name": "aaaabbaeeaapafngjgj",
+    "name": "Canard12",
     "sprites": {
       "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png"
+    }
+  },
+  {
+    "uuid": 1698653789197,
+    "id": 8,
+    "name": "wartortle",
+    "sprites": {
+      "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png"
     }
   }
 ]

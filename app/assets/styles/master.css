@@ -595,6 +595,7 @@ header nav a:hover {
 }
 .pokemon__form input {
   border-radius: none;
+  height: 34px;
 }
 
 body {

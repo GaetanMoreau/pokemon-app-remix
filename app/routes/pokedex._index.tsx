@@ -31,12 +31,13 @@ export default function Component() {
   };
 
   const pokemonsSeenNumber = Object.keys(pokemonsSeen).length;
+  const pokemonsNumber = Object.keys(pokemons).length;
 
   return (
     <>
 
       <section className="home__container">
-        <h1>Vous avez rencontré {pokemonsSeenNumber} pokemons sur 151</h1>
+        <h1>Vous avez rencontré {pokemonsSeenNumber} pokemons sur {pokemonsNumber}</h1>
       </section>
       <section className="pokedex__container">
         {pokemons.map((pokemon, index) => {
